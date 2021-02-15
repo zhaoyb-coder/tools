@@ -10,9 +10,9 @@ def parasArgs():
     parser = argparse.ArgumentParser("拼接图片")
     parser.add_argument('--targetpath', type=str, default='example/1.jpg', help='目标图像路径')
     parser.add_argument('--outputpath', type=str, default='output/1.jpg', help='输出图像的路径')
-    parser.add_argument('--sourcepath', type=str, default='C:/Users/z/Downloads/ImageSpider-master/img', help='用来拼接图像的所有源文件路径')
-    # parser.add_argument('--sourcepath', type=str, default='../reptiles_imgs/images', help='用来拼接图像的所有源文件路径')
-    parser.add_argument('--blocksize', type=str, default=15, help='像素大小')
+    # parser.add_argument('--sourcepath', type=str, default='C:/Users/z/Downloads/ImageSpider-master/img', help='用来拼接图像的所有源文件路径')
+    parser.add_argument('--sourcepath', type=str, default='../reptiles_imgs/images', help='用来拼接图像的所有源文件路径')
+    parser.add_argument('--blocksize', type=str, default=3, help='像素大小')
 
     args = parser.parse_args()
     return args
@@ -38,8 +38,7 @@ def readSourceImage(sourcepath, blocksize):
             sourceimages.append(image)
             avgcolors.append(avgcolor)
         except Exception:
-            print(path)
-            print("有错误")
+            print('')
 
     print("结束读取")
     return sourceimages, np.array(avgcolors)
